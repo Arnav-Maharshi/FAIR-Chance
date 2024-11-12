@@ -29,12 +29,12 @@ def smooth_landmarks(landmarks, prev_landmarks, alpha):
     ** (Using EMA (Exponential Moving Average)) **
 
     Parameters:
-    - landmarks: Current frame landmarks.
-    - prev_landmarks: Previous frame landmarks.
-    - alpha: Smoothing factor (0 < alpha < 1); closer to 1 means less smoothing.
+    > landmarks: Current frame landmarks.
+    > prev_landmarks: Previous frame landmarks.
+    > alpha: Smoothing factor (0 < alpha < 1); closer to 1 means less smoothing.
 
     Returns:
-    - smoothed_landmarks: Smoothed coordinates.
+    > smoothed_landmarks: Smoothed coordinates.
     """
     if prev_landmarks is None:
         return landmarks  # No previous landmarks; return the current ones as is
