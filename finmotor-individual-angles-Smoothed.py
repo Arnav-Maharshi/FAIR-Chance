@@ -46,8 +46,8 @@ def smooth_landmarks(landmarks, prev_landmarks, alpha):
     return np.array(smoothed_landmarks)
 
 
-# Measuring angle of joints
-def indexF_MP(image, results): #, joint_list)
+# Measuring individual angle of index finger MP joint
+def indexF_MP(image, results): 
 
     acc_percent_list = []
 
@@ -83,7 +83,8 @@ def indexF_MP(image, results): #, joint_list)
     return image, acc_percent_list
 
 
-def indexF_PIP(image, results): #, joint_list)
+# Measuring individual angle of index finger PIP joint
+def indexF_PIP(image, results): 
     # Loop through hands
     acc_percent_list = []
     for index, hand in enumerate(results.multi_hand_landmarks):
@@ -117,7 +118,8 @@ def indexF_PIP(image, results): #, joint_list)
     return image, acc_percent_list
 
 
-def indexF_DIP(image, results): #, joint_list)
+# Measuring individual angle of index finger DIP joint
+def indexF_DIP(image, results): 
     # Loop through hands
     acc_percent_list = []
 
@@ -153,7 +155,8 @@ def indexF_DIP(image, results): #, joint_list)
     return image, acc_percent_list
 
 
-def thumb_IP(image, results): #, joint_list)
+# Measuring individual angle of thumb IP joint
+def thumb_IP(image, results): 
     
     # Loop through hands
     acc_percent_list = []
@@ -190,7 +193,8 @@ def thumb_IP(image, results): #, joint_list)
     return image, acc_percent_list
 
 
-def thumb_prot(image, results): # Thumb Protrusion
+# Measuring individual angle of Thumb Protrusion
+def thumb_prot(image, results): 
     # Loop through hands
     acc_distance_list = []
 
@@ -217,7 +221,7 @@ def thumb_prot(image, results): # Thumb Protrusion
 ##################################################################################
 
 
-
+# Main Code
 while cv2.waitKey(1) != 27:
     ret, frame = cap.read()
     if not ret:
@@ -251,7 +255,6 @@ while cv2.waitKey(1) != 27:
             
         thumb_prot(frame, results)
 
-        #frame, accuracy = indexF_(frame, results)
            
     # Show the output with skeleton overlay
     cv2.imshow('MediaPipe Hand Estimation', frame)
